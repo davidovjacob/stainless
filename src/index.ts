@@ -2,9 +2,10 @@
 
 import * as Core from './core';
 import * as Errors from './error';
+import { isRequestOptions } from './core';
 import { type Agent } from './_shims/index';
 import * as Uploads from './uploads';
-import * as API from 'jacob/resources/index';
+import * as API from 'https://github.com/davidovjacob/stainless/resources/index';
 
 export interface ClientOptions {
   /**
@@ -66,6 +67,7 @@ export interface ClientOptions {
 
 /** API Client for interfacing with the Jacob API. */
 export class Jacob extends Core.APIClient {
+
   private _options: ClientOptions;
 
   /**
@@ -79,7 +81,11 @@ export class Jacob extends Core.APIClient {
    * @param {Core.Headers} opts.defaultHeaders - Default headers to include with every request to the API.
    * @param {Core.DefaultQuery} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
-  constructor({ baseURL = Core.readEnv('JACOB_BASE_URL'), ...opts }: ClientOptions = {}) {
+  constructor({
+    baseURL = Core.readEnv('JACOB_BASE_URL'),
+    ...opts
+  }: ClientOptions = {}) {
+
     const options: ClientOptions = {
       ...opts,
       baseURL: baseURL || `http://petstore.swagger.io/v1`,
@@ -93,6 +99,7 @@ export class Jacob extends Core.APIClient {
       fetch: options.fetch,
     });
     this._options = options;
+
   }
 
   pets: API.Pets = new API.Pets(this);
@@ -128,21 +135,7 @@ export class Jacob extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
-  JacobError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} = Errors;
+export const { JacobError, APIError, APIConnectionError, APIConnectionTimeoutError, APIUserAbortError, NotFoundError, ConflictError, RateLimitError, BadRequestError, AuthenticationError, InternalServerError, PermissionDeniedError, UnprocessableEntityError } = Errors
 
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;

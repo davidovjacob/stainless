@@ -1,4 +1,5 @@
 import { VERSION } from './version';
+;
 import {
   JacobError,
   APIError,
@@ -38,6 +39,8 @@ type APIResponseProps = {
 
 async function defaultParseResponse<T>(props: APIResponseProps): Promise<T> {
   const { response } = props;
+  ;
+
   // fetch refuses to read the body when the status code is 204.
   if (response.status === 204) {
     return null as T;
@@ -97,9 +100,9 @@ export class APIPromise<T> extends Promise<T> {
    *
    * 👋 Getting the wrong TypeScript type for `Response`?
    * Try setting `"moduleResolution": "NodeNext"` if you can,
-   * or add one of these imports before your first `import … from 'jacob'`:
-   * - `import 'jacob/shims/node'` (if you're running on Node)
-   * - `import 'jacob/shims/web'` (otherwise)
+   * or add one of these imports before your first `import … from 'https://github.com/davidovjacob/stainless'`:
+   * - `import 'https://github.com/davidovjacob/stainless/shims/node'` (if you're running on Node)
+   * - `import 'https://github.com/davidovjacob/stainless/shims/web'` (otherwise)
    */
   asResponse(): Promise<Response> {
     return this.responsePromise.then((p) => p.response);
@@ -113,9 +116,9 @@ export class APIPromise<T> extends Promise<T> {
    *
    * 👋 Getting the wrong TypeScript type for `Response`?
    * Try setting `"moduleResolution": "NodeNext"` if you can,
-   * or add one of these imports before your first `import … from 'jacob'`:
-   * - `import 'jacob/shims/node'` (if you're running on Node)
-   * - `import 'jacob/shims/web'` (otherwise)
+   * or add one of these imports before your first `import … from 'https://github.com/davidovjacob/stainless'`:
+   * - `import 'https://github.com/davidovjacob/stainless/shims/node'` (if you're running on Node)
+   * - `import 'https://github.com/davidovjacob/stainless/shims/web'` (otherwise)
    */
   async withResponse(): Promise<{ data: T; response: Response }> {
     const [data, response] = await Promise.all([this.parse(), this.asResponse()]);
@@ -194,7 +197,7 @@ export abstract class APIClient {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'User-Agent': this.getUserAgent(),
-      ...getPlatformHeaders(),
+...getPlatformHeaders(),
       ...this.authHeaders(opts),
     };
   }
@@ -735,7 +738,10 @@ export type RequestOptions<Req = unknown | Record<string, unknown> | Readable> =
   signal?: AbortSignal | undefined | null;
   idempotencyKey?: string;
 
+
+
   __binaryResponse?: boolean | undefined;
+
 };
 
 // This is required so that we can determine if a given object matches the RequestOptions
@@ -755,7 +761,10 @@ const requestOptionsKeys: KeysEnum<RequestOptions> = {
   signal: true,
   idempotencyKey: true,
 
+
+
   __binaryResponse: true,
+
 };
 
 export const isRequestOptions = (obj: unknown): obj is RequestOptions => {
@@ -963,7 +972,8 @@ export const castToError = (err: any): Error => {
 };
 
 export const ensurePresent = <T>(value: T | null | undefined): T => {
-  if (value == null) throw new JacobError(`Expected a value to be given but received ${value} instead.`);
+  if (value == null)
+    throw new JacobError(`Expected a value to be given but received ${value} instead.`);
   return value;
 };
 

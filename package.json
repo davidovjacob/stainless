@@ -1,12 +1,12 @@
 {
-  "name": "jacob",
+  "name": "https://github.com/davidovjacob/stainless",
   "version": "0.0.1-alpha.0",
   "description": "The official TypeScript library for the Jacob API",
   "author": "Jacob <dev-feedback@jacob.com>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
-  "repository": "github:stainless-sdks/jacob-node",
+  "repository": "github:stainless-sdks/https:",
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.22",
   "files": [
@@ -61,8 +61,8 @@
     "./shims/web.mjs"
   ],
   "imports": {
-    "jacob": ".",
-    "jacob/*": "./src/*"
+    "https://github.com/davidovjacob/stainless": ".",
+    "https://github.com/davidovjacob/stainless/*": "./src/*"
   },
   "exports": {
     "./_shims/auto/*": {

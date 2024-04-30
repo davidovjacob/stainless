@@ -6,9 +6,9 @@
     "rootDir": "./deno",
     "lib": ["es2020", "DOM"],
     "paths": {
-      "jacob/_shims/auto/*": ["deno/_shims/auto/*-deno"],
-      "jacob/*": ["deno/*"],
-      "jacob": ["deno/index.ts"],
+      "https://github.com/davidovjacob/stainless/_shims/auto/*": ["deno/_shims/auto/*-deno"],
+      "https://github.com/davidovjacob/stainless/*": ["deno/*"],
+      "https://github.com/davidovjacob/stainless": ["deno/index.ts"],
     },
     "noEmit": true,
     "declaration": true,

@@ -1,16 +1,18 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from 'jacob/core';
-import { APIResource } from 'jacob/resource';
-import { isRequestOptions } from 'jacob/core';
-import * as PetsAPI from 'jacob/resources/pets';
+import * as Core from 'https://github.com/davidovjacob/stainless/core';
+import { APIPromise } from 'https://github.com/davidovjacob/stainless/core';
+import { APIResource } from 'https://github.com/davidovjacob/stainless/resource';
+import { isRequestOptions } from 'https://github.com/davidovjacob/stainless/core';
+import { type Response } from 'https://github.com/davidovjacob/stainless/_shims/index';
+import * as PetsAPI from 'https://github.com/davidovjacob/stainless/resources/pets';
 
 export class Pets extends APIResource {
   /**
    * Create a pet
    */
   create(options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.post('/pets', { ...options, headers: { Accept: '*/*', ...options?.headers } });
+    return this._client.post('/pets', { ...options, headers: { 'Accept': '*/*', ...options?.headers } });
   }
 
   /**
@@ -23,12 +25,9 @@ export class Pets extends APIResource {
   /**
    * List all pets
    */
-  list(query?: PetListParams, options?: Core.RequestOptions): Core.APIPromise<Pets>;
-  list(options?: Core.RequestOptions): Core.APIPromise<Pets>;
-  list(
-    query: PetListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Pets> {
+  list(query?: PetListParams, options?: Core.RequestOptions): Core.APIPromise<Pets>
+  list(options?: Core.RequestOptions): Core.APIPromise<Pets>
+  list(query: PetListParams | Core.RequestOptions = {}, options?: Core.RequestOptions): Core.APIPromise<Pets> {
     if (isRequestOptions(query)) {
       return this.list({}, query);
     }
@@ -44,7 +43,7 @@ export interface Pet {
   tag?: string;
 }
 
-export type Pets = Array<Pet>;
+export type Pets = Array<Pet>
 
 export interface PetListParams {
   /**

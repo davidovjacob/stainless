@@ -7,9 +7,9 @@ const config: JestConfigWithTsJest = {
     '^.+\\.(t|j)sx?$': ['@swc/jest', { sourceMaps: 'inline' }],
   },
   moduleNameMapper: {
-    '^jacob$': '<rootDir>/src/index.ts',
-    '^jacob/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
-    '^jacob/(.*)$': '<rootDir>/src/$1',
+    '^https://github.com/davidovjacob/stainless$': '<rootDir>/src/index.ts',
+    '^https://github.com/davidovjacob/stainless/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
+    '^https://github.com/davidovjacob/stainless/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: [
     '<rootDir>/ecosystem-tests/',

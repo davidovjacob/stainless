@@ -1,5 +1,5 @@
-import { createResponseHeaders } from 'jacob/core';
-import { Headers } from 'jacob/_shims/index';
+import { createResponseHeaders } from 'https://github.com/davidovjacob/stainless/core';
+import { Headers } from 'https://github.com/davidovjacob/stainless/_shims/index';
 
 describe('response parsing', () => {
   // TODO: test unicode characters

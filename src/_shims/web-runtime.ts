@@ -9,9 +9,9 @@ export function getRuntime({ manuallyImported }: { manuallyImported?: boolean } 
   const recommendation =
     manuallyImported ?
       `You may need to use polyfills`
-    : `Add one of these imports before your first \`import … from 'jacob'\`:
-- \`import 'jacob/shims/node'\` (if you're running on Node)
-- \`import 'jacob/shims/web'\` (otherwise)
+    : `Add one of these imports before your first \`import … from 'https://github.com/davidovjacob/stainless'\`:
+- \`import 'https://github.com/davidovjacob/stainless/shims/node'\` (if you're running on Node)
+- \`import 'https://github.com/davidovjacob/stainless/shims/web'\` (otherwise)
 `;
 
   let _fetch, _Request, _Response, _Headers;

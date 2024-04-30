@@ -1,6 +1,6 @@
-import { multipartFormRequestOptions, createForm } from 'jacob/core';
-import { Blob } from 'jacob/_shims/index';
-import { toFile } from 'jacob';
+import { multipartFormRequestOptions, createForm } from 'https://github.com/davidovjacob/stainless/core';
+import { Blob } from 'https://github.com/davidovjacob/stainless/_shims/index';
+import { toFile } from 'https://github.com/davidovjacob/stainless';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {
