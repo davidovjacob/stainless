@@ -25,7 +25,7 @@ import Jacob1 from 'https://github.com/davidovjacob/stainless';
 const jacob1 = new Jacob1();
 
 async function main() {
-  const response = await jacob1.pets.create();
+  const response = await jacob1.pets1.create();
 }
 
 main();
@@ -42,7 +42,7 @@ import Jacob1 from 'https://github.com/davidovjacob/stainless';
 const jacob1 = new Jacob1();
 
 async function main() {
-  const response = await jacob1.pets.create();
+  const response = await jacob1.pets1.create();
 }
 
 main();
@@ -59,7 +59,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const response = await jacob1.pets.create().catch(async (err) => {
+  const response = await jacob1.pets1.create().catch(async (err) => {
     if (err instanceof Jacob1.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
@@ -102,7 +102,7 @@ const jacob1 = new Jacob1({
 });
 
 // Or, configure per-request:
-await jacob1.pets.create({
+await jacob1.pets1.create({
   maxRetries: 5,
 });
 ```
@@ -119,7 +119,7 @@ const jacob1 = new Jacob1({
 });
 
 // Override per-request:
-await jacob1.pets.create({
+await jacob1.pets1.create({
   timeout: 5 * 1000,
 });
 ```
@@ -140,11 +140,11 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const jacob1 = new Jacob1();
 
-const response = await jacob1.pets.create().asResponse();
+const response = await jacob1.pets1.create().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: response, response: raw } = await jacob1.pets.create().withResponse();
+const { data: response, response: raw } = await jacob1.pets1.create().withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(response);
 ```
@@ -250,7 +250,7 @@ const jacob1 = new Jacob1({
 });
 
 // Override per-request:
-await jacob1.pets.create({
+await jacob1.pets1.create({
   httpAgent: new http.Agent({ keepAlive: false }),
 });
 ```

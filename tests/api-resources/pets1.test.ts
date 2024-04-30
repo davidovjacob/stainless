@@ -5,9 +5,9 @@ import { Response } from 'node-fetch';
 
 const jacob1 = new Jacob1({ baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010' });
 
-describe('resource pets', () => {
+describe('resource pets1', () => {
   test('create', async () => {
-    const responsePromise = jacob1.pets.create();
+    const responsePromise = jacob1.pets1.create();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -19,13 +19,31 @@ describe('resource pets', () => {
 
   test('create: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(jacob1.pets.create({ path: '/_stainless_unknown_path' }))
+    await expect(jacob1.pets1.create({ path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(Jacob1.NotFoundError);
+  });
+
+  test('retrieve', async () => {
+    const responsePromise = jacob1.pets1.retrieve('string');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  test('retrieve: request options instead of params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(jacob1.pets1.retrieve('string', { path: '/_stainless_unknown_path' }))
       .rejects
       .toThrow(Jacob1.NotFoundError);
   });
 
   test('list', async () => {
-    const responsePromise = jacob1.pets.list();
+    const responsePromise = jacob1.pets1.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -37,14 +55,14 @@ describe('resource pets', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(jacob1.pets.list({ path: '/_stainless_unknown_path' }))
+    await expect(jacob1.pets1.list({ path: '/_stainless_unknown_path' }))
       .rejects
       .toThrow(Jacob1.NotFoundError);
   });
 
   test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(jacob1.pets.list({ limit: 0 }, { path: '/_stainless_unknown_path' }))
+    await expect(jacob1.pets1.list({ limit: 0 }, { path: '/_stainless_unknown_path' }))
       .rejects
       .toThrow(Jacob1.NotFoundError);
   });
