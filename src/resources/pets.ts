@@ -16,13 +16,6 @@ export class Pets extends APIResource {
   }
 
   /**
-   * Info for a specific pet
-   */
-  retrieve(petId: string, options?: Core.RequestOptions): Core.APIPromise<Pet> {
-    return this._client.get(`/pets/${petId}`, options);
-  }
-
-  /**
    * List all pets
    */
   list(query?: PetListParams, options?: Core.RequestOptions): Core.APIPromise<Pets>
