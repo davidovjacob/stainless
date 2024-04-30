@@ -50,17 +50,17 @@ Alternatively, to link a local copy of the repo:
 ```bash
 # Clone
 git clone https://www.github.com/stainless-sdks/personal-5t7qa0/jacob-node
-cd jacob-node
+cd https:
 
 # With yarn
 yarn link
 cd ../my-package
-yarn link jacob
+yarn link https://github.com/davidovjacob/stainless
 
 # With pnpm
 pnpm link --global
 cd ../my-package
-pnpm link -—global jacob
+pnpm link -—global https://github.com/davidovjacob/stainless
 ```
 
 ## Running tests

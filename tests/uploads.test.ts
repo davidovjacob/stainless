@@ -1,6 +1,6 @@
 import fs from 'fs';
-import { toFile, type ResponseLike } from 'jacob/uploads';
-import { File } from 'jacob/_shims/index';
+import { toFile, type ResponseLike } from 'https://github.com/davidovjacob/stainless/uploads';
+import { File } from 'https://github.com/davidovjacob/stainless/_shims/index';
 
 class MyClass {
   name: string = 'foo';

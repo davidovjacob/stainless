@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Jacob from 'jacob';
+import Jacob, { toFile } from 'https://github.com/davidovjacob/stainless';
 import { Response } from 'node-fetch';
 
-const jacob = new Jacob({ baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010' });
+const jacob = new Jacob({ baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010' });
 
 describe('resource pets', () => {
   test('create', async () => {
@@ -19,9 +19,9 @@ describe('resource pets', () => {
 
   test('create: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(jacob.pets.create({ path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Jacob.NotFoundError,
-    );
+    await expect(jacob.pets.create({ path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(Jacob.NotFoundError);
   });
 
   test('retrieve', async () => {
@@ -37,9 +37,9 @@ describe('resource pets', () => {
 
   test('retrieve: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(jacob.pets.retrieve('string', { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Jacob.NotFoundError,
-    );
+    await expect(jacob.pets.retrieve('string', { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(Jacob.NotFoundError);
   });
 
   test('list', async () => {
@@ -55,13 +55,15 @@ describe('resource pets', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(jacob.pets.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(Jacob.NotFoundError);
+    await expect(jacob.pets.list({ path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(Jacob.NotFoundError);
   });
 
   test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(jacob.pets.list({ limit: 0 }, { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Jacob.NotFoundError,
-    );
+    await expect(jacob.pets.list({ limit: 0 }, { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(Jacob.NotFoundError);
   });
 });

@@ -4,8 +4,8 @@
 /**
  * Types will get added to this namespace when you import one of the following:
  *
- *   import 'jacob/shims/node'
- *   import 'jacob/shims/web'
+ *   import 'https://github.com/davidovjacob/stainless/shims/node'
+ *   import 'https://github.com/davidovjacob/stainless/shims/web'
  *
  * Importing more than one will cause type and runtime errors.
  */

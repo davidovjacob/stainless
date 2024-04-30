@@ -42,11 +42,13 @@ export let isFsReadStream: Shims['isFsReadStream'] | undefined = undefined;
 export function setShims(shims: Shims, options: { auto: boolean } = { auto: false }) {
   if (auto) {
     throw new Error(
-      `you must \`import 'jacob/shims/${shims.kind}'\` before importing anything else from jacob`,
+      `you must \`import 'https://github.com/davidovjacob/stainless/shims/${shims.kind}'\` before importing anything else from https://github.com/davidovjacob/stainless`,
     );
   }
   if (kind) {
-    throw new Error(`can't \`import 'jacob/shims/${shims.kind}'\` after \`import 'jacob/shims/${kind}'\``);
+    throw new Error(
+      `can't \`import 'https://github.com/davidovjacob/stainless/shims/${shims.kind}'\` after \`import 'https://github.com/davidovjacob/stainless/shims/${kind}'\``,
+    );
   }
   auto = options.auto;
   kind = shims.kind;

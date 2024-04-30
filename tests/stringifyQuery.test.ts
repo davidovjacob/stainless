@@ -1,4 +1,4 @@
-import { APIClient } from 'jacob/core';
+import { APIClient } from 'https://github.com/davidovjacob/stainless/core';
 
 const { stringifyQuery } = APIClient.prototype as any;
 

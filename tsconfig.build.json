@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "jacob/*": ["dist/src/*"],
-      "jacob": ["dist/src/index.ts"],
+      "https://github.com/davidovjacob/stainless/*": ["dist/src/*"],
+      "https://github.com/davidovjacob/stainless": ["dist/src/index.ts"],
     },
     "noEmit": false,
     "declaration": true,

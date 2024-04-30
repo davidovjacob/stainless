@@ -9,9 +9,9 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "jacob/_shims/auto/*": ["src/_shims/auto/*-node"],
-      "jacob/*": ["src/*"],
-      "jacob": ["src/index.ts"],
+      "https://github.com/davidovjacob/stainless/_shims/auto/*": ["src/_shims/auto/*-node"],
+      "https://github.com/davidovjacob/stainless/*": ["src/*"],
+      "https://github.com/davidovjacob/stainless": ["src/index.ts"],
     },
     "noEmit": true,
 
