@@ -145,6 +145,7 @@ export namespace Jacob1 {
 
   export import Pets = API.Pets;
   export import Pet = API.Pet;
+  export import PetListResponse = API.PetListResponse;
   export import PetListParams = API.PetListParams;
 }
 

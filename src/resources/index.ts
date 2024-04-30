@@ -1,3 +1,3 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { Pet, Pets, PetListParams } from './pets';
+export { Pet, PetListResponse, PetListParams, Pets } from './pets';
