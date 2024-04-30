@@ -2,10 +2,10 @@
 
 import { castToError, Headers } from './core';
 
-export class JacobError extends Error {
+export class Jacob1Error extends Error {
 }
 
-export class APIError extends JacobError {
+export class APIError extends Jacob1Error {
   readonly status: number | undefined;
   readonly headers: Headers | undefined;
   readonly error: Object | undefined;
