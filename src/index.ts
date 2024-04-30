@@ -11,7 +11,7 @@ export interface ClientOptions {
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
    *
-   * Defaults to process.env['JACOB_BASE_URL'].
+   * Defaults to process.env['JACOB1_BASE_URL'].
    */
   baseURL?: string | null | undefined;
 
@@ -65,15 +65,15 @@ export interface ClientOptions {
   defaultQuery?: Core.DefaultQuery;
 }
 
-/** API Client for interfacing with the Jacob API. */
-export class Jacob extends Core.APIClient {
+/** API Client for interfacing with the Jacob1 API. */
+export class Jacob1 extends Core.APIClient {
 
   private _options: ClientOptions;
 
   /**
-   * API Client for interfacing with the Jacob API.
+   * API Client for interfacing with the Jacob1 API.
    *
-   * @param {string} [opts.baseURL=process.env['JACOB_BASE_URL'] ?? http://petstore.swagger.io/v1] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['JACOB1_BASE_URL'] ?? http://petstore.swagger.io/v1] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
    * @param {Core.Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -82,7 +82,7 @@ export class Jacob extends Core.APIClient {
    * @param {Core.DefaultQuery} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
   constructor({
-    baseURL = Core.readEnv('JACOB_BASE_URL'),
+    baseURL = Core.readEnv('JACOB1_BASE_URL'),
     ...opts
   }: ClientOptions = {}) {
 
@@ -115,9 +115,9 @@ export class Jacob extends Core.APIClient {
     };
   }
 
-  static Jacob = this;
+  static Jacob1 = this;
 
-  static JacobError = Errors.JacobError;
+  static Jacob1Error = Errors.Jacob1Error;
   static APIError = Errors.APIError;
   static APIConnectionError = Errors.APIConnectionError;
   static APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
@@ -135,12 +135,12 @@ export class Jacob extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const { JacobError, APIError, APIConnectionError, APIConnectionTimeoutError, APIUserAbortError, NotFoundError, ConflictError, RateLimitError, BadRequestError, AuthenticationError, InternalServerError, PermissionDeniedError, UnprocessableEntityError } = Errors
+export const { Jacob1Error, APIError, APIConnectionError, APIConnectionTimeoutError, APIUserAbortError, NotFoundError, ConflictError, RateLimitError, BadRequestError, AuthenticationError, InternalServerError, PermissionDeniedError, UnprocessableEntityError } = Errors
 
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
-export namespace Jacob {
+export namespace Jacob1 {
   export import RequestOptions = Core.RequestOptions;
 
   export import Pets = API.Pets;
@@ -148,4 +148,4 @@ export namespace Jacob {
   export import PetListParams = API.PetListParams;
 }
 
-export default Jacob;
+export default Jacob1;
