@@ -25,9 +25,7 @@ import Jacob1 from 'https://github.com/davidovjacob/stainless';
 const jacob1 = new Jacob1();
 
 async function main() {
-  const pet = await jacob1.pets.retrieve('REPLACE_ME');
-
-  console.log(pet.id);
+  const response = await jacob1.pets.create();
 }
 
 main();
@@ -44,7 +42,7 @@ import Jacob1 from 'https://github.com/davidovjacob/stainless';
 const jacob1 = new Jacob1();
 
 async function main() {
-  const pet: Jacob1.Pet = await jacob1.pets.retrieve('REPLACE_ME');
+  const response = await jacob1.pets.create();
 }
 
 main();
@@ -61,7 +59,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const pet = await jacob1.pets.retrieve('REPLACE_ME').catch(async (err) => {
+  const response = await jacob1.pets.create().catch(async (err) => {
     if (err instanceof Jacob1.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
@@ -104,7 +102,7 @@ const jacob1 = new Jacob1({
 });
 
 // Or, configure per-request:
-await jacob1.pets.retrieve('REPLACE_ME', {
+await jacob1.pets.create({
   maxRetries: 5,
 });
 ```
@@ -121,7 +119,7 @@ const jacob1 = new Jacob1({
 });
 
 // Override per-request:
-await jacob1.pets.retrieve('REPLACE_ME', {
+await jacob1.pets.create({
   timeout: 5 * 1000,
 });
 ```
@@ -142,13 +140,13 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const jacob1 = new Jacob1();
 
-const response = await jacob1.pets.retrieve('REPLACE_ME').asResponse();
+const response = await jacob1.pets.create().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: pet, response: raw } = await jacob1.pets.retrieve('REPLACE_ME').withResponse();
+const { data: response, response: raw } = await jacob1.pets.create().withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(pet.id);
+console.log(response);
 ```
 
 ### Making custom/undocumented requests
@@ -252,7 +250,7 @@ const jacob1 = new Jacob1({
 });
 
 // Override per-request:
-await jacob1.pets.retrieve('REPLACE_ME', {
+await jacob1.pets.create({
   httpAgent: new http.Agent({ keepAlive: false }),
 });
 ```
