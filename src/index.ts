@@ -103,6 +103,7 @@ export class Jacob1 extends Core.APIClient {
   }
 
   pets: API.Pets = new API.Pets(this);
+  pets1: API.Pets1 = new API.Pets1(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -145,8 +146,11 @@ export namespace Jacob1 {
 
   export import Pets = API.Pets;
   export import Pet = API.Pet;
-  export import PetListResponse = API.PetListResponse;
-  export import PetListParams = API.PetListParams;
+
+  export import Pets1 = API.Pets1;
+  export import Pet = API.Pet;
+  export import Pets1ListResponse = API.Pets1ListResponse;
+  export import Pets1ListParams = API.Pets1ListParams;
 }
 
 export default Jacob1;
